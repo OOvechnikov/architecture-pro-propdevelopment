@@ -1,0 +1,43 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: bind-cluster-viewer
+  namespace: access-demo
+subjects:
+  - kind: ServiceAccount
+    name: cluster-viewer
+    namespace: access-demo
+roleRef:
+  kind: Role
+  name: cluster-viewer
+  apiGroup: rbac.authorization.k8s.io
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: bind-cluster-configurator
+  namespace: access-demo
+subjects:
+  - kind: ServiceAccount
+    name: cluster-configurator
+    namespace: access-demo
+roleRef:
+  kind: Role
+  name: cluster-configurator
+  apiGroup: rbac.authorization.k8s.io
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: bind-admin
+  namespace: access-demo
+subjects:
+  - kind: ServiceAccount
+    name: admin
+    namespace: access-demo
+roleRef:
+  kind: Role
+  name: admin
+  apiGroup: rbac.authorization.k8s.io
